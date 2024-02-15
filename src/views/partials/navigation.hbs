@@ -1,50 +1,71 @@
-<nav class=" navbar navbar-expand-lg  p-3 mb-5 bg-pink " style="background: rgb(107, 3, 4);">
- <a href="/"> <img class="logo-navbar" style="height: 60px;" src="/img/kreativaa.png" alt="logo"></a>
-  <p class="text-white pt-4 fs-4" >KREATIVA</p> 
-<div class="container ">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <img src="/img/pngwing.com.png" class="balloon" style="left: 0;">
-        <img src="/img/pngwing.com.png" class="balloon" style="right: 0;">
-        {{#if user}}
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/links">Todos Los Productos</a>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/links/add">Agregar Productos</a>
-          </li>
-          <li class="nav-item">
-            <a href="/profile" class="nav-link">Perfil</a>
-          </li>
-          <li class="nav-item">
-            <a href="/logout" class="nav-link">Cerrar Sesion</a>
-          </li>
-          {{else}}
-          <div>
-          <select id="miSelect" class="btn m-2 fs-6 text-white" onchange="window.location.hash=this.value">
-            <option value="/links/Desayunos#tematicas" class="bg-danger">Desayunos</option>
-            <option value="/links/Desayunos#tematicas" class="bg-danger">Tematicas</option>
-            <option value="/links/Desayunos#criollos" class="bg-danger">Criollos</option>
-            <option value="/links/Desayunos#light" class="bg-danger">Light</option>
-            <option value="/links/Desayunos#reposteria" class="bg-danger">Repostería</option>
-            <option value="/links/Desayunos#regalosParaEl" class="bg-danger">Regalos para Él</option>
-            <option value="/links/Desayunos#Regalos para Ella" class="bg-danger">Regalos para Ella</option>
-          </select>
+<nav class="navbar  navprincipal mb-4 " style="background: rgb(107, 3, 4);">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="/">KREATIVA</a>
 
-          </div>
-          <div>
-          <select class="btn  m-2 fs-6 text-white"  onchange="window.location.href=this.value;">
-            <option value="/links/floristeria " class="bg-danger">Floristeria </option>
-            <option value="/links/floristeria#Funebres  " class="bg-danger">Funebres  </option>
-            <option value="/links/floristeria#Cajas " class="bg-danger">Cajas </option>
-            <option value="/links/floristeria#De Mano" class="bg-danger">De Mano </option>
-            <option value="/links/floristeria#Regalos" class="bg-danger">Regalos </option>
-          </select>
-          </div>
-        {{/if}}    
-      </ul>
-    </div>
-    </div>
+     <li class="nav-item dropdown list-unstyled text-white">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Desayunos
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="/links/Desayunos">Desayunos</a></li>
+              <li><a class="dropdown-item" href="/links/Desayunos#tematicas">tematicas</a></li>
+              <li><a class="dropdown-item" href="/links/Desayunos#criollos">criollos</a></li>
+              <li><a class="dropdown-item" href="/links/Desayunos#light">light</a></li>
+              <li><a class="dropdown-item" href="/links/Desayunos#reposteria">reposteria</a></li>
+              <li><a class="dropdown-item" href="/links/Desayunos#regalosParaEl">regalos Para Él</a></li>
+              <li><a class="dropdown-item" href="/links/Desayunos#Regalos para Ella">Regalos para Ella</a></li>
+              
+            </ul>
+          </li>
+    <li class="nav-item dropdown list-unstyled text-white">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Floristeria
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="/links/floristeria">Floristeria</a></li>
+              <li><a class="dropdown-item" href="/links/floristeria#Funebres">Funebres</a></li>
+              <li><a class="dropdown-item" href="/links/floristeria#Cajas">Cajas</a></li>
+              <li><a class="dropdown-item" href="/links/floristeria#De Mano">De Mano</a></li>
+              <li><a class="dropdown-item" href="/links/floristeria#Regalos">Regalos</a></li>
+              <li>
+            </ul>
+          </li>
+         
+                        
+<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+   <i class="fa-solid fa-cart-shopping m-3 fs-2 " style="color: white;" id="imeg-carrito"></i>
+</button>
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Carrito de compras</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" >
+        <div id="carrito" >
+            <table id="lista-carrito" >
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody >
+                  
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <a href="#" id="vaciarCarritoBtn" class="btn btn-danger m-2">vaciar carrito</a>
+            </div>
+            <div>
+                <div id="total">Total: $0</div>
+                <button id="botonPago">Pagar</button>
+            </div>
+        </div>
   </div>
 </div>
+
+  </div>
 </nav>
+

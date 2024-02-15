@@ -1,5 +1,5 @@
 <div class="general-cont">
-
+<div id="lista-1">
   <div  class="cont-bg-white">
     <div id="tematicas" class="container p-4">
       <div class="row">
@@ -8,36 +8,24 @@
         </div>
         {{#each productos}}
           {{#if (eq this.categoria "Tematicas")}}
-            <div  class="col-md-4">
-              <div
-                class="tarjeta card tex-center text-white rounded"
-                style="background-color:  #8b0000;"
-              >
+            <div class="col-md-4">
+            <div class="tarjeta card text-center text-white rounded" style="background-color: #8b0000;">
                 <div class="card-body">
-                  <div>
-                    <img
-                      src="/links/imagen/{{this.id}}"
-                      alt="Imagen de {{this.Titulo}}"
-                      class="imagenes-productos mx-auto d-block rounded"
-                    />
-                    <h3
-                      class="card-title text-uppercase text-uppercase text-center"
-                    >
-                      {{this.Titulo}}
-                    </h3>
-                  </div>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.Description}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.categoria}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >precio:{{this.precios}}</p>
+                    <div>
+                        <img src="/links/imagen/{{this.id}}" alt="Imagen de {{this.Titulo}}" class="imagenes-productos mx-auto d-block rounded" style="width: 100%;">
+                        <h3 class="card-title text-uppercase text-center">
+                            {{this.Titulo}}
+                        </h3>
+                    </div>
+                    <p class="m-2 text-uppercase text-center">{{this.Description}}</p>
+                    <p class="m-2 text-uppercase text-center">{{this.categoria}}</p>
+                    <p class="m-2 text-uppercase text-center precio"> {{this.precios}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-danger agregar-carrito" data-id="{{this.id}}" data-imagen="/links/imagen/{{this.id}}" data-titulo="{{this.Titulo}}" data-precio="{{this.precios}}">Agregar al carrito</a>
+                    </div>
                 </div>
-              </div>
             </div>
+        </div>
           {{/if}}
         {{/each}}
       </div>
@@ -50,36 +38,24 @@
         </div>
         {{#each productos}}
           {{#if (eq this.categoria "Criollos")}}
-            <div  class="col-md-4">
-              <div
-                class="tarjeta card tex-center text-white rounded"
-                style="background-color:  #8b0000;"
-              >
+            <div class="col-md-4">
+            <div class="tarjeta card text-center text-white rounded" style="background-color: #8b0000;">
                 <div class="card-body">
-                  <div>
-                    <img
-                      src="/links/imagen/{{this.id}}"
-                      alt="Imagen de {{this.Titulo}}"
-                      class="imagenes-productos mx-auto d-block rounded"
-                    />
-                    <h3
-                      class="card-title text-uppercase text-uppercase text-center"
-                    >
-                      {{this.Titulo}}
-                    </h3>
-                  </div>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.Description}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.categoria}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >precio:{{this.precios}}</p>
+                    <div>
+                        <img src="/links/imagen/{{this.id}}" alt="Imagen de {{this.Titulo}}" class="imagenes-productos mx-auto d-block rounded" style="width: 100%;">
+                        <h3 class="card-title text-uppercase text-center">
+                            {{this.Titulo}}
+                        </h3>
+                    </div>
+                    <p class="m-2 text-uppercase text-center">{{this.Description}}</p>
+                    <p class="m-2 text-uppercase text-center">{{this.categoria}}</p>
+                    <p class="m-2 text-uppercase text-center precio"> {{this.precios}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-danger agregar-carrito" data-id="{{this.id}}" data-imagen="/links/imagen/{{this.id}}" data-titulo="{{this.Titulo}}" data-precio="{{this.precios}}">Agregar al carrito</a>
+                    </div>
                 </div>
-              </div>
             </div>
+        </div>
           {{/if}}
         {{/each}}
       </div>
@@ -92,36 +68,24 @@
         </div>
         {{#each productos}}
           {{#if (eq this.categoria "Light")}}
-            <div  class="col-md-4">
-              <div
-                class="tarjeta card tex-center text-white rounded"
-                style="background-color:  #8b0000;"
-              >
+            <div class="col-md-4">
+            <div class="tarjeta card text-center text-white rounded" style="background-color: #8b0000;">
                 <div class="card-body">
-                  <div>
-                    <img
-                      src="/links/imagen/{{this.id}}"
-                      alt="Imagen de {{this.Titulo}}"
-                      class="imagenes-productos mx-auto d-block rounded"
-                    />
-                    <h3
-                      class="card-title text-uppercase text-uppercase text-center"
-                    >
-                      {{this.Titulo}}
-                    </h3>
-                  </div>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.Description}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.categoria}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >precio:{{this.precios}}</p>
+                    <div>
+                        <img src="/links/imagen/{{this.id}}" alt="Imagen de {{this.Titulo}}" class="imagenes-productos mx-auto d-block rounded" style="width: 100%;">
+                        <h3 class="card-title text-uppercase text-center">
+                            {{this.Titulo}}
+                        </h3>
+                    </div>
+                    <p class="m-2 text-uppercase text-center">{{this.Description}}</p>
+                    <p class="m-2 text-uppercase text-center">{{this.categoria}}</p>
+                    <p class="m-2 text-uppercase text-center precio"> {{this.precios}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-danger agregar-carrito" data-id="{{this.id}}" data-imagen="/links/imagen/{{this.id}}" data-titulo="{{this.Titulo}}" data-precio="{{this.precios}}">Agregar al carrito</a>
+                    </div>
                 </div>
-              </div>
             </div>
+        </div>
           {{/if}}
         {{/each}}
       </div>
@@ -134,36 +98,24 @@
         </div>
         {{#each productos}}
           {{#if (eq this.categoria "Reposteria")}}
-            <div  class="col-md-4">
-              <div
-                class="tarjeta card tex-center text-white rounded"
-                style="background-color:  #8b0000;"
-              >
+            <div class="col-md-4">
+            <div class="tarjeta card text-center text-white rounded" style="background-color: #8b0000;">
                 <div class="card-body">
-                  <div>
-                    <img
-                      src="/links/imagen/{{this.id}}"
-                      alt="Imagen de {{this.Titulo}}"
-                      class="imagenes-productos mx-auto d-block rounded"
-                    />
-                    <h3
-                      class="card-title text-uppercase text-uppercase text-center"
-                    >
-                      {{this.Titulo}}
-                    </h3>
-                  </div>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.Description}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.categoria}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >precio:{{this.precios}}</p>
+                    <div>
+                        <img src="/links/imagen/{{this.id}}" alt="Imagen de {{this.Titulo}}" class="imagenes-productos mx-auto d-block rounded" style="width: 100%;">
+                        <h3 class="card-title text-uppercase text-center">
+                            {{this.Titulo}}
+                        </h3>
+                    </div>
+                    <p class="m-2 text-uppercase text-center">{{this.Description}}</p>
+                    <p class="m-2 text-uppercase text-center">{{this.categoria}}</p>
+                    <p class="m-2 text-uppercase text-center precio"> {{this.precios}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-danger agregar-carrito" data-id="{{this.id}}" data-imagen="/links/imagen/{{this.id}}" data-titulo="{{this.Titulo}}" data-precio="{{this.precios}}">Agregar al carrito</a>
+                    </div>
                 </div>
-              </div>
             </div>
+        </div>
           {{/if}}
         {{/each}}
       </div>
@@ -176,36 +128,24 @@
         </div>
         {{#each productos}}
           {{#if (eq this.categoria "Regalos para ÉL")}}
-            <div  class="col-md-4">
-              <div
-                class="tarjeta card tex-center text-white rounded"
-                style="background-color:  #8b0000;"
-              >
+            <div class="col-md-4">
+            <div class="tarjeta card text-center text-white rounded" style="background-color: #8b0000;">
                 <div class="card-body">
-                  <div>
-                    <img
-                      src="/links/imagen/{{this.id}}"
-                      alt="Imagen de {{this.Titulo}}"
-                      class="imagenes-productos mx-auto d-block rounded"
-                    />
-                    <h3
-                      class="card-title text-uppercase text-uppercase text-center"
-                    >
-                      {{this.Titulo}}
-                    </h3>
-                  </div>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.Description}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.categoria}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >precio:{{this.precios}}</p>
+                    <div>
+                        <img src="/links/imagen/{{this.id}}" alt="Imagen de {{this.Titulo}}" class="imagenes-productos mx-auto d-block rounded" style="width: 100%;">
+                        <h3 class="card-title text-uppercase text-center">
+                            {{this.Titulo}}
+                        </h3>
+                    </div>
+                    <p class="m-2 text-uppercase text-center">{{this.Description}}</p>
+                    <p class="m-2 text-uppercase text-center">{{this.categoria}}</p>
+                    <p class="m-2 text-uppercase text-center precio"> {{this.precios}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-danger agregar-carrito" data-id="{{this.id}}" data-imagen="/links/imagen/{{this.id}}" data-titulo="{{this.Titulo}}" data-precio="{{this.precios}}">Agregar al carrito</a>
+                    </div>
                 </div>
-              </div>
             </div>
+        </div>
           {{/if}}
         {{/each}}
       </div>
@@ -218,39 +158,32 @@
         </div>
         {{#each productos}}
           {{#if (eq this.categoria "Regalos para Ella")}}
-            <div  class="col-md-4">
-              <div
-                class="tarjeta card tex-center text-white rounded"
-                style="background-color:  #8b0000;"
-              >
+            <div class="col-md-4">
+            <div class="tarjeta card text-center text-white rounded" style="background-color: #8b0000;">
                 <div class="card-body">
-                  <div>
-                    <img
-                      src="/links/imagen/{{this.id}}"
-                      alt="Imagen de {{this.Titulo}}"
-                      class="imagenes-productos mx-auto d-block rounded"
-                    />
-                    <h3
-                      class="card-title text-uppercase text-uppercase text-center"
-                    >
-                      {{this.Titulo}}
-                    </h3>
-                  </div>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.Description}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >{{this.categoria}}</p>
-                  <p
-                    class="m-2 text-uppercase text-center"
-                  >precio:{{this.precios}}</p>
+                    <div>
+                        <img src="/links/imagen/{{this.id}}" alt="Imagen de {{this.Titulo}}" class="imagenes-productos mx-auto d-block rounded" style="width: 100%;">
+                        <h3 class="card-title text-uppercase text-center">
+                            {{this.Titulo}}
+                        </h3>
+                    </div>
+                    <p class="m-2 text-uppercase text-center">{{this.Description}}</p>
+                    <p class="m-2 text-uppercase text-center">{{this.categoria}}</p>
+                    <p class="m-2 text-uppercase text-center precio"> {{this.precios}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn btn-danger agregar-carrito" data-id="{{this.id}}" data-imagen="/links/imagen/{{this.id}}" data-titulo="{{this.Titulo}}" data-precio="{{this.precios}}">Agregar al carrito</a>
+                    </div>
                 </div>
-              </div>
             </div>
+        </div>
           {{/if}}
         {{/each}}
       </div>
     </div>
   </div>
 </div>
+</div>
+
+
+
+

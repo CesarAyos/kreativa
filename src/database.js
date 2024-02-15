@@ -11,7 +11,7 @@ async function fetchData() {
     .select('*')
 
   if (error) console.error('Hubo un error al realizar la consulta:', error)
-  else console.log('Datos obtenidos:', data)
+  // else console.log('Datos obtenidos:', data)
 }
 
 fetchData();

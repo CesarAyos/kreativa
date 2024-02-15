@@ -39,7 +39,7 @@ async function fetchData() {
     } else {
       // Convierte la marca de tiempo de cada fila a formato 'time ago'
       data.forEach(row => {
-        console.log(`Tabla: ${table}, Fecha: ${timeago(row.created_at)}`);
+        // console.log(`Tabla: ${table}, Fecha: ${timeago(row.created_at)}`);
       });
     }
   }
@@ -47,3 +47,4 @@ async function fetchData() {
 
 // Llama a la función fetchData
 fetchData();
+

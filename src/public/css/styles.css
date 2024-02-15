@@ -2,13 +2,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.logo-navbar{
-  padding-left: 500px;
+.navprincipal{
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
-.navbar {
-  box-shadow: 2px 10px 14px 7px #906b13;
-}
 
 .btn-wsp{
   position: fixed;
@@ -143,6 +140,7 @@ header a{
 .ofert-1{
   margin-bottom: 25px;
   text-align: center;
+  
 }
 
 
@@ -177,34 +175,16 @@ header a{
 }
 
 .footer{
-  margin: 0 20px;
-  padding: 50px 0;
   background-color: rgb(107, 3, 4);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
 }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.link h3 {
-  font-size: 18px;
+.link p {
   color: white;
   font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 20px;
 }
 
-.link a {
-  font-size: 16px;
-  color: #dcdcdc;
-  display: block;
-  margin-bottom: 10px;
-  text-decoration: none;  
 
-}
+
 .balloon {
   height: 200px;
   position: fixed;
@@ -252,82 +232,39 @@ header a{
 /* Estilo para el pulgar de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb {
   background-color:  rgb(107, 3, 4);; /* Color del pulgar de desplazamiento */
-  border-radius: 10px; /* Redondez del pulgar de desplazamiento */
 
 }
 
-/* para celular */
-* {
-  font-family: 'Roboto', sans-serif;
-}
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 980px) {
-  .logo-navbar {
-    padding-left: 20px; /* Ajustar según sea necesario */
+  table{
+    width: 100%;
   }
 
-  .navbar {
-    box-shadow: 2px 10px 14px 7px #906b13;
+  th, td{
+    color: #ffffff;
+    font-size: 20px;
   }
 
-  .btn-wsp {
-    position: fixed;
-    width: 60px; /* Tamaño más pequeño para dispositivos móviles */
-    height: 60px;
-    line-height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: green;
-    color: #fff;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 24px; /* Tamaño de fuente más pequeño para dispositivos móviles */
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.9);
-    z-index: 100;
-  }
-
-  header ul {
-    display: block; /* Cambiar flex a block para apilar elementos */
-    padding: 10px;
-    background-color: #8b0000;
-    list-style: none;
-  }
-
-  header a {
-    color: white;
-    font-size: 16px;
-    padding: 10px; /* Aumentar el padding para una mejor tocabilidad */
+  .borrar{
+    background-color: #111111;
+    border-radius: 50%;
+    padding: 5px 10px;
     text-decoration: none;
-    cursor: pointer;
-    display: block; /* Hacer que cada enlace sea un bloque para apilar */
-  }
-
-  .contenedor-imagenes {
-    /* Para pantallas pequeñas, mostramos solo dos imágenes por fila */
-    grid-template-columns: 1fr;
-  }
-}
-
-
-  /* Agregar un botón de menú hamburguesa */
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    color: #ffffff;
+    font-weight: 800;
     cursor: pointer;
   }
 
-  /* Ocultar los elementos del menú cuando el menú hamburguesa no esté activo */
-  .menu-toggle.active + ul {
-    display: none;
-  }
-
-  /* Estilos adicionales para otros elementos según sea necesario */
 
 
-/* Estilos para dispositivos más grandes se mantienen igual */
+
+
+
+
+
+
+
+
 
 
 
