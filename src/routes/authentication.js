@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { createClient } = require('@supabase/supabase-js')
+const { createClient } = require('@supabase/supabase-js');
+require('dotenv').config();
 
-const supabaseUrl = 'https://sqcxqakhwmnwrzewxwji.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxY3hxYWtod21ud3J6ZXd4d2ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcxNDc0MjMsImV4cCI6MjAyMjcyMzQyM30.tNWSgWguO5A6d3HDVLL8gooDinlbzVejsDoZQ2jPyPQ'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const { isLoggedIn } = require('../lib/auth');
+
 
 // SIGNUP
 router.get('/signup', (req, res) => {
@@ -18,7 +22,11 @@ router.post('/signup', async (req, res) => {
   });
 
   if (error) return res.redirect('/signup');
-  return res.redirect("links/profile");
+  req.session.user = {
+    isAuthenticated: true,
+    
+  };
+  return res.redirect('/profile');
 });
 
 // SIGNIN
@@ -33,16 +41,18 @@ router.post('/signin', async (req, res) => {
   });
 
   if (error) return res.redirect('/signin');
-  return res.redirect("links/profile");
+  req.session.user = {
+    isAuthenticated: true,
+    
+  };
+  return res.redirect('profile');
 });
 
-router.get("profile", async (req, res) => {
+router.get('/profile', async (req, res) => {
   const { data: session, error } = await supabase.auth.getSession();
 
   if (!session) return res.redirect('/signin');
-  return res.render('"links/profile"');
+  return res.render('profile');
 });
 
-
-
-module.exports =  router ;
+module.exports = router;

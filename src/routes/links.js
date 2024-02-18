@@ -3,13 +3,15 @@ const router = express.Router();
 const Handlebars = require("handlebars");
 const multer = require("multer");
 const path = require("path");
-const app = express();
-const bodyParser = require("body-parser");
-app.use(express.urlencoded({ extended: true }));
 const { createClient } = require ('@supabase/supabase-js')
-const cookieSession = require('cookie-session')
+const app = express ();
 
-const supabase = createClient('https://sqcxqakhwmnwrzewxwji.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxY3hxYWtod21ud3J6ZXd4d2ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcxNDc0MjMsImV4cCI6MjAyMjcyMzQyM30.tNWSgWguO5A6d3HDVLL8gooDinlbzVejsDoZQ2jPyPQ')
+
+require('dotenv').config();
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const storage = multer.diskStorage({
   destination: function(req, file, callback) {
@@ -21,18 +23,21 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 const pool = require("../database");
 const { isLoggedIn } = require("../lib/auth");
 
-router.get("/add", (req, res) => {
-  res.render("links/add");
+
+
+
+router.get('/add', (req, res ) => {
+  res.render('links/add');
 });
 
 
-router.get("/profile", (req, res) => {
-  res.render("links/profile");
+router.get('/profile', (req, res ) => {
+  res.render('profile');
 });
+
 
 router.post("/add", upload.single("imagen"), async (req, res) => {
   const { Titulo, Description, categoria, precios } = req.body;
@@ -69,13 +74,17 @@ router.post("/add", upload.single("imagen"), async (req, res) => {
 
 
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res,) => {
+
   const { data: productos, error } = await supabase
     .from('productos')
     .select('*')
+
   if (error) throw error;
-  res.render("links/list", { productos });
+  console.log();
+  res.render('links/list', { productos });
 });
+
 
 router.get("/delete/:id", async (req, res) => {
   const { id } = req.params;

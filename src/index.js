@@ -30,22 +30,6 @@ app.engine(
   })
 );
 app.set("views engine", ".hbs");
-
-// Conexión a Supabase
-const supabaseUrl = 'https://sqcxqakhwmnwrzewxwji.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxY3hxYWtod21ud3J6ZXd4d2ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcxNDc0MjMsImV4cCI6MjAyMjcyMzQyM30.tNWSgWguO5A6d3HDVLL8gooDinlbzVejsDoZQ2jPyPQ';
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-  let { user, error } = await supabase.auth.signIn({ email, password });
-
-  if (error) return res.status(401).send({ error: error.message });
-  return res.status(200).send({ user });
-});
-
-
-
 app.use(flash());
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
