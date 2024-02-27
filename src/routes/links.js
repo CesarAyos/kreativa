@@ -3,8 +3,7 @@ const router = express.Router();
 const Handlebars = require("handlebars");
 const multer = require("multer");
 const path = require("path");
-const { createClient } = require ('@supabase/supabase-js')
-const app = express ();
+const { createClient } = require ('@supabase/supabase-js');
 
 
 require('dotenv').config();
@@ -23,18 +22,22 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-const pool = require("../database");
-const { isLoggedIn } = require("../lib/auth");
+
+function ensureAuthenticated(req, res, next) {
+  if (req.session.user && req.session.user.isAuthenticated) {
+    return next();
+  } else {
+    return res.redirect('/signin');
+  }
+}
 
 
-
-
-router.get('/add', (req, res ) => {
+router.get('/add',ensureAuthenticated, (req, res ) => {
   res.render('links/add');
 });
 
 
-router.get('/profile', (req, res ) => {
+router.get('/profile',ensureAuthenticated, (req, res ) => {
   res.render('profile');
 });
 
@@ -74,7 +77,7 @@ router.post("/add", upload.single("imagen"), async (req, res) => {
 
 
 
-router.get('/', async (req, res,) => {
+router.get('/',ensureAuthenticated, async (req, res,) => {
 
   const { data: productos, error } = await supabase
     .from('productos')

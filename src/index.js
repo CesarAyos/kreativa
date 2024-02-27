@@ -1,20 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
-const multer = require("multer");
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const flash = require("connect-flash");
-const session = require("cookie-session");
-const passport = require("passport");
-const upload = multer({ dest: "uploads/" });
-const { createClient } = require("@supabase/supabase-js");
+const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 require('dotenv').config()
 
 // Inicializaciones
 const app = express();
-require("./lib/passport");
+
 
 // Configuraciones
 app.set("port", process.env.PORT || 4000);
@@ -26,7 +22,6 @@ app.engine(
     layoutsDir: path.join(app.get("views"), "layouts"),
     partialsDir: path.join(app.get("views"), "partials"),
     extname: ".hbs",
-    helpers: require("./lib/handlebars"),
   })
 );
 app.set("views engine", ".hbs");
@@ -36,14 +31,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(session({
-  secret: 'kLWQsZnYbRXeDF4u',
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(cookieParser());
+
+app.use(cookieSession({
+  name: 'session', 
+  keys: ['clave_secreta'],
+  maxAge: 300000, 
+}));
 
 // Variables globales
 app.use((req, res, next) => {
