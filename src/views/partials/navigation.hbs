@@ -1,4 +1,4 @@
-<nav class="navbar  navprincipal mb-4 " style="background: rgb(107, 3, 4);">
+<nav class="navbar  navprincipal pb-4 " style="background: rgb(107, 3, 4);">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="/">KREATIVA</a>
 
@@ -33,9 +33,39 @@
          
                         
 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-   <i class="fa-solid fa-cart-shopping m-3 fs-2 " style="color: white;" id="imeg-carrito"></i>
+   <a href="/links/formulario"><i class="fa-solid fa-cart-shopping m-3 fs-2 " style="color: white;" id="imeg-carrito"></i></a>
 </button>
-<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+
+ <style>
+        .btn-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+    </style>
+
+    <div class="btn-group dropup btn-float">
+        <button type="button" style="width: 250px;background: rgba(107, 3, 5, 0.719);color: rgb(212, 163, 48)" class="btn " data-bs-toggle="dropdown" aria-expanded="false">
+            Cotiza con nosotros
+        </button>
+        <ul class="dropdown-menu" style="background: rgb(107, 3, 4);width: 250px;">
+            <li><a class="dropdown-item" style="color: rgb(212, 163, 48);"  href="https://web.whatsapp.com/send?phone=573114881281" target="_blank">WhatsApp</a></li>
+            {{!-- <li><a class="dropdown-item" href="https://www.facebook.com/people/AJinstalaciones/100093338443642/" target="_blank">Facebook</a></li>
+            <li><a class="dropdown-item"  href="https://www.instagram.com/ajinstalaciones.cl/" target="_blank">Instagram</a></li> --}}
+        </ul>
+    </div>
+
+
+
+
+{{!-- carrito de compras --}}
+
+
+{{!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+   <i class="fa-solid fa-cart-shopping m-3 fs-2 " style="color: white;" id="imeg-carrito"></i>
+</button> --}}
+{{!-- <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Carrito de compras</h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -64,7 +94,7 @@
             </div>
         </div>
   </div>
-</div>
+</div> --}}
 
   </div>
 </nav>

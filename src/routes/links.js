@@ -42,6 +42,11 @@ router.get('/profile',ensureAuthenticated, (req, res ) => {
 });
 
 
+router.get('/formulario', (req, res ) => {
+  res.render('links/formulario');
+});
+
+
 router.post("/add", upload.single("imagen"), async (req, res) => {
   const { Titulo, Description, categoria, precios } = req.body;
   
@@ -166,6 +171,8 @@ router.get('/imagen/:id', async (req, res) => {
     res.status(500).send('Error al leer la imagen');
   }
 });
+
+
 
 
 
