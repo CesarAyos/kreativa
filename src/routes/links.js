@@ -80,6 +80,22 @@ router.post("/add", upload.single("imagen"), async (req, res) => {
   res.redirect("/links");
 });
 
+router.get('/imagen/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { data: rows, error } = await supabase
+      .from('productos')
+      .select('imagen')
+      .eq('id', id);
+    if (error) throw error;
+    const imagen = rows[0].imagen;
+    res.sendFile(path.resolve(imagen));
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error al leer la imagen');
+  }
+});
+
 
 
 router.get('/',ensureAuthenticated, async (req, res,) => {
@@ -136,12 +152,22 @@ router.post("/edit/:id", async (req, res) => {
 });
 
 router.get("/desayunos", async (req, res) => {
-  const { data: productos, error } = await supabase
-    .from('productos')
-    .select('*');
-  if (error) throw error;
-  res.render("links/desayunos", { productos });
+  try {
+    const { data: productos, error } = await supabase
+      .from('productos')
+      .select('*');
+      
+    if (error) {
+      throw error;
+    }
+    
+    res.render("links/desayunos", { productos });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error al obtener los productos');
+  }
 });
+
 
 router.get("/floristeria", async (req, res) => {
   const { data: productos, error } = await supabase
@@ -156,21 +182,7 @@ Handlebars.registerHelper("eq", function (a, b) {
   return a === b;
 });
 
-router.get('/imagen/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { data: rows, error } = await supabase
-      .from('productos')
-      .select('imagen')
-      .eq('id', id);
-    if (error) throw error;
-    const imagen = rows[0].imagen;
-    res.sendFile(path.resolve(imagen));
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error al leer la imagen');
-  }
-});
+
 
 
 
